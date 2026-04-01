@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phnom Penh Autonomous Port (PPAP) | កំពង់ផែស្វយ័តភ្នំពេញ</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #002b5c;
+            --primary-light: #004085;
+            --accent: #d4af37;
+            --accent-hover: #b8962e;
+            --white: #ffffff;
+            --slate-50: rgba(248, 250, 252, 0.7); /* Slightly transparent to show crystal bg */
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            --header-h: 115px; /* Adjusted for marquee */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.15);
+            --grad-footer: linear-gradient(to bottom, rgba(15, 23, 42, 0.96) 0%, rgba(0, 43, 92, 0.92) 100%);
+            --grad-hero: linear-gradient(to top, rgba(15, 23, 42, 0.98) 0%, rgba(15, 23, 42, 0.4) 100%);
+            /* Crystal Gradient Definition */
+            --crystal-bg: linear-gradient(135deg, #ffffff 0%, #f0f8ff 40%, #e6f2ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', sans-serif;
+            background: var(--crystal-bg);
+            background-attachment: fixed;
+            color: var(--slate-800);
+            line-height: 1.7;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        [lang="en"] body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* --- Marquee Styles --- */
+        .header-marquee {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+            overflow: hidden;
+            position: relative;
+            z-index: 1001;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .marquee-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- Scroll Reveal Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 0.8s ease, transform 0.8s var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-main {
+            height: 85px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        header.scrolled .header-main {
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
+        }
+
+        header.scrolled .header-marquee {
+            display: none; /* Hide marquee on scroll for compactness */
+        }
+
+        nav {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- Logo --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            z-index: 1001;
+            color: var(--primary);
+        }
+
+        .logo-icon-box {
+            background: var(--primary);
+            color: var(--white);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            box-shadow: 0 8px 16px rgba(0, 43, 92, 0.2);
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo-icon-box {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.05rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        /* Nav Desktop */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-800);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        /* Highlight Style for Active Menu */
+        .nav-links a.active { 
+            color: var(--primary); 
+            font-weight: 800;
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; 
+            left: 0; 
+            width: 100%; 
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .lang-switch {
+            display: flex;
+            background: var(--slate-100);
+            padding: 4px;
+            border-radius: 50px;
+            margin-left: 0.8rem;
+        }
+
+        .lang-btn {
+            border: none;
+            background: none;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--slate-800);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: var(--primary);
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            color: var(--white);
+            z-index: 1001;
+            transition: var(--transition);
+        }
+        
+        .menu-toggle svg {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .menu-toggle:active svg {
+            transform: scale(0.85);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--slate-900);
+            overflow: hidden;
+        }
+
+        .hero-img-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+            animation: kenBurns 40s infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--grad-hero);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1100px;
+            text-align: center;
+            color: var(--white);
+            padding: 120px 2rem 60px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            margin-bottom: 3.5rem;
+            max-width: 850px;
+            margin-inline: auto;
+            opacity: 0.9;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            background: var(--accent-hover);
+        }
+
+        /* --- Stats Section (State Section) --- */
+        .stats-section {
+            background: var(--primary);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            text-align: center;
+            gap: 40px;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .stat-item.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .stat-item h3 {
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .stat-item p {
+            color: white;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 120px 2rem;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--primary);
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 80px; height: 5px;
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+        /* --- Grid & Cards --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 25px;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.6);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            background: var(--white);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            width: 85px; height: 85px;
+            background: var(--slate-50);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: var(--white);
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .terminal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+        }
+
+        .terminal-card {
+            height: 500px;
+            border-radius: 35px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+        }
+
+        .terminal-img {
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: 1.8s var(--transition);
+        }
+
+        .terminal-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 43, 92, 0.95) 0%, transparent 70%);
+            transition: var(--transition);
+        }
+
+        .terminal-card:hover .terminal-img { transform: scale(1.12); }
+        .terminal-card:hover::after { background: linear-gradient(to top, rgba(212, 175, 55, 0.85) 0%, rgba(0, 43, 92, 0.5) 100%); }
+
+        .terminal-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 45px;
+            color: var(--white);
+            z-index: 2;
+        }
+
+        .terminal-content h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .terminal-content p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* --- Footer with Port Background --- */
+        footer {
+            position: relative;
+            background-image: var(--grad-footer), url('https://images.unsplash.com/photo-1516589174382-c68586ad5ceb?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 120px 2rem 50px;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .footer-grid {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Back to Top --- */
+        #backToTop {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            display: none;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+            transition: var(--transition);
+        }
+
+        /* --- Mobile Overlay (Smooth Staggered Animation) --- */
+        #mobileMenu {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            padding: 140px 2.5rem;
+            gap: 2.5rem;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+            z-index: 999;
+        }
+
+        #mobileMenu.active { 
+            transform: translateX(0); 
+            opacity: 1;
+        }
+
+        #mobileMenu a, #mobileMenu .lang-switch {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #mobileMenu.active a, #mobileMenu.active .lang-switch {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #mobileMenu.active a:nth-child(1) { transition-delay: 0.15s; }
+        #mobileMenu.active a:nth-child(2) { transition-delay: 0.25s; }
+        #mobileMenu.active a:nth-child(3) { transition-delay: 0.35s; }
+        #mobileMenu.active a:nth-child(4) { transition-delay: 0.45s; }
+        #mobileMenu.active .lang-switch { transition-delay: 0.55s; }
+
+
+        /* --- Additional Detail Sections --- */
+        .detail-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 992px) {
+            .detail-row { grid-template-columns: 1fr; gap: 40px; padding: 20px; }
+            .detail-row:nth-child(even) .detail-img { order: -1; }
+        }
+
+        .detail-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .detail-content p {
+            font-size: 1.1rem;
+            color: var(--slate-800);
+            margin-bottom: 25px;
+        }
+
+        .detail-img {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            height: 400px;
+        }
+
+        .detail-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 1100px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .logo-text-group { display: none; }
+        }
+
+        @media (max-width: 640px) {
+            header { height: auto; }
+            .header-main { height: 75px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            section { padding: 80px 1.5rem; }
+            .footer-bottom { justify-content: center; text-align: center; }
+            footer { background-attachment: scroll; }
+            #mobileMenu a { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body id="pageBody">
+
+    <button id="backToTop"><i data-lucide="arrow-up"></i></button>
+
+    <!-- Refined Mobile Menu -->
+    <div id="mobileMenu">
+        <a href="#home" class="mobile-nav-item" data-i18n="menu-home">ទំព័រដើម</a>
+        <a href="#services" class="mobile-nav-item" data-i18n="menu-services">សេវាកម្ម</a>
+        <a href="#terminals" class="mobile-nav-item" data-i18n="menu-terminals">ហេដ្ឋារចនាសម្ព័ន្ធ</a>
+        <a href="#contact" class="mobile-nav-item" data-i18n="menu-contact">ទំនាក់ទំនង</a>
+        <div class="lang-switch" style="width:fit-content; margin-top:20px;">
+            <button class="lang-btn" id="m-btn-km" onclick="changeLanguage('km')">KM</button>
+            <button class="lang-btn" id="m-btn-en" onclick="changeLanguage('en')">EN</button>
+        </div>
+    </div>
+
+    <header id="mainHeader">
+        <div class="header-marquee">
+            <div class="marquee-content" id="marqueeText">
+                <div class="marquee-item"><div class="marquee-dot"></div><span data-i18n="marquee-1">Welcome to Phnom Penh Autonomous Port (PPAP)</span></div>
+                <div class="marquee-item"><div class="marquee-dot"></div><span data-i18n="marquee-2">Leading International River Port in Cambodia</span></div>
+                <div class="marquee-item"><div class="marquee-dot"></div><span data-i18n="marquee-3">Listed on CSX: Symbol PPAP</span></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><div class="marquee-dot"></div><span data-i18n="marquee-1">Welcome to Phnom Penh Autonomous Port (PPAP)</span></div>
+                <div class="marquee-item"><div class="marquee-dot"></div><span data-i18n="marquee-2">Leading International River Port in Cambodia</span></div>
+                <div class="marquee-item"><div class="marquee-dot"></div><span data-i18n="marquee-3">Listed on CSX: Symbol PPAP</span></div>
+            </div>
+        </div>
+        <div class="header-main">
+            <nav>
+                <a href="#home" class="logo">
+                    <div class="logo-icon-box">
+                        <i data-lucide="anchor" size="28"></i>
+                    </div>
+                    <div class="logo-text-group">
+                        <span class="logo-main" data-i18n="logo-main">កំពង់ផែស្វយ័តភ្នំពេញ</span>
+                        <span class="logo-sub" data-i18n="logo-sub">PPAP CAMBODIA</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active" data-i18n="menu-home">ទំព័រដើម</a></li>
+                    <li><a href="#services" class="nav-link" data-i18n="menu-services">សេវាកម្ម</a></li>
+                    <li><a href="#terminals" class="nav-link" data-i18n="menu-terminals">ហេដ្ឋារចនាសម្ព័ន្ធ</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="menu-contact">ទំនាក់ទំនង</a></li>
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn active" id="btn-km" onclick="changeLanguage('km')">KM</button>
+                            <button class="lang-btn" id="btn-en" onclick="changeLanguage('en')">EN</button>
+                        </div>
+                    </li>
+                </ul>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i data-lucide="menu" size="28"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2000" class="hero-img-bg" alt="PPAP Port Operations">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-i18n="hero-title">កំពង់ផែស្វយ័តក្រុងភ្នំពេញ</h1>
+            <p data-i18n="hero-subtitle">ជំរុញសេដ្ឋកិច្ចកម្ពុជាតាមរយៈហេដ្ឋារចនាសម្ព័ន្ធសមុទ្រលំដាប់ពិភពលោក និងការតភ្ជាប់ពីទន្លេទៅសមុទ្រប្រកបដោយប្រសិទ្ធភាពខ្ពស់បំផុត។</p>
+            <a href="#services" class="btn btn-primary">
+                <span data-i18n="hero-cta">ស្វែងយល់ពីសក្ដានុពលរបស់យើង</span>
+                <i data-lucide="arrow-right" size="20"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item state-card">
+                <h3 class="counter" data-target="7">0</h3>
+                <p data-i18n="stat-terminals">Strategic Terminals</p>
+            </div>
+            <div class="stat-item state-card">
+                <h3 class="counter" data-target="660000">0</h3>
+                <p data-i18n="stat-containers">Annual TEU Capacity</p>
+            </div>
+            <div class="stat-item state-card">
+                <h3 class="counter" data-target="64">0</h3>
+                <p data-i18n="stat-profit">Profit Margin %</p>
+            </div>
+            <div class="stat-item state-card">
+                <h3 class="counter" data-target="2015">0</h3>
+                <p data-i18n="stat-listed">Listed Year</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header reveal">
+            <h2 data-i18n="services-title">ប្រតិបត្តិការកំពង់ផែឯកទេស</h2>
+        </div>
+        
+        <!-- Service Grid Overview -->
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon"><i data-lucide="anchor" size="40"></i></div>
+                <h3 data-i18n="service-1-h">អាជ្ញាធរកំពង់ផែ</h3>
+                <p data-i18n="service-1-p">គ្រប់គ្រងនាវាចរណ៍ ការនាំនាវា និងការបូមស្តារ ដើម្បីធានាលំហូរចរាចរណ៍កំពង់ផែប្រកបដោយសុវត្ថិភាព។</p>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <div class="service-icon"><i data-lucide="container" size="40"></i></div>
+                <h3 data-i18n="service-2-h">សេវាលើកដាក់ទំនិញ</h3>
+                <p data-i18n="service-2-p">ការចាត់ចែងទំនិញ និងប្រតិបត្តិការកុងតឺន័រដោយប្រើប្រាស់ប្រព័ន្ធស្ទូចទំនើបចុងក្រោយបង្អស់។</p>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-icon"><i data-lucide="shield-check" size="40"></i></div>
+                <h3 data-i18n="service-3-h">ដំណោះស្រាយភស្តុភារ</h3>
+                <p data-i18n="service-3-p">ដំណោះស្រាយខ្សែសង្វាក់ផ្គត់ផ្គង់ចម្រុះ តភ្ជាប់ចំណតក្នុងដីគោកជាមួយផ្លូវនាវាចរណ៍សកលលោក។</p>
+            </div>
+        </div>
+
+        <!-- Detailed Service Content to lengthen section -->
+        <div class="detail-row reveal">
+            <div class="detail-content">
+                <h3 data-i18n="serv-detail-1-h">ប្រតិបត្តិការនាវាចរណ៍ និងសុវត្ថិភាព</h3>
+                <p data-i18n="serv-detail-1-p">ក្នុងនាមជាអាជ្ញាធរកំពង់ផែ យើងធានាបាននូវសុវត្ថិភាពខ្ពស់បំផុតសម្រាប់នាវាទាំងអស់ដែលចូលចត។ សេវាកម្មរបស់យើងរួមមានការណែនាំផ្លូវនាវា ការបូមស្តារផ្លូវទឹក និងការគ្រប់គ្រងចរាចរណ៍តាមទន្លេប្រកបដោយវិជ្ជាជីវៈ។</p>
+                <div class="btn btn-primary" style="padding: 12px 30px; font-size: 0.9rem;">
+                    <span data-i18n="read-more">អានបន្ថែម</span>
+                </div>
+            </div>
+            <div class="detail-img">
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" alt="Port Safety">
+            </div>
+        </div>
+
+        <div class="detail-row reveal">
+            <div class="detail-img">
+                <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&q=80&w=800" alt="Logistics Flow">
+            </div>
+            <div class="detail-content">
+                <h3 data-i18n="serv-detail-2-h">សេវាកម្មភស្តុភារកម្មទំនើប</h3>
+                <p data-i18n="serv-detail-2-p">យើងផ្តល់ជូននូវដំណោះស្រាយដឹកជញ្ជូនដែលរួមបញ្ចូលគ្នា រវាងផ្លូវទឹក និងផ្លូវគោក។ ជាមួយនឹងឃ្លាំងស្តុកទំនិញដែលមានសុវត្ថិភាព និងប្រព័ន្ធគ្រប់គ្រងទិន្នន័យកម្រិតខ្ពស់ យើងជួយឱ្យអាជីវកម្មរបស់អ្នកដំណើរការដោយរលូន។</p>
+                <div class="btn btn-primary" style="padding: 12px 30px; font-size: 0.9rem;">
+                    <span data-i18n="read-more">អានបន្ថែម</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminals/Infrastructure Section -->
+    <section id="terminals">
+        <div style="max-width: 1320px; margin: 0 auto;">
+            <div class="section-header reveal">
+                <h2 data-i18n="terminals-title">ហេដ្ឋារចនាសម្ព័ន្ធទន្លេចម្បង</h2>
+            </div>
+
+            <!-- ALL 7 Terminal Cards -->
+            <div class="terminal-grid reveal">
+                <div class="terminal-card">
+                    <div class="terminal-img" style="background-image: url('https://images.unsplash.com/photo-1520110120835-c96a9ff95b2a?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="terminal-content">
+                        <h3 data-i18n="terminal-1-h">ចំណតកុងតឺន័រ LM17</h3>
+                        <p data-i18n="terminal-1-p">មជ្ឈមណ្ឌលទន្លេចម្បងរបស់ព្រះរាជាណាចក្រ សម្រាប់ការដឹកជញ្ជូនកុងតឺន័រអន្តរជាតិ។</p>
+                    </div>
+                </div>
+                
+                <div class="terminal-card">
+                    <div class="terminal-img" style="background-image: url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="terminal-content">
+                        <h3 data-i18n="terminal-2-h">ចំណតពហុបំណង TS3</h3>
+                        <p data-i18n="terminal-2-p">មូលដ្ឋានចម្រុះសម្រាប់ចាត់ចែងទំនិញទូទៅ គ្រឿងចក្រធុនធ្ងន់ និងការតភ្ជាប់ពាណិជ្ជកម្ម។</p>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-img" style="background-image: url('https://images.unsplash.com/photo-1559139225-8216b8e830f1?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="terminal-content">
+                        <h3 data-i18n="terminal-3-h">ចំណតអ្នកដំណើរ និងទេសចរណ៍ TS1</h3>
+                        <p data-i18n="terminal-3-p">ខណ្ឌដូនពេញ - ច្រកទ្វារទេសចរណ៍តាមដងទន្លេដ៏រស់រវើក។</p>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-img" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="terminal-content">
+                        <h3 data-i18n="terminal-4-h">ចំណតពហុបំណងរណប UM1</h3>
+                        <p data-i18n="terminal-4-p">កំពុងអភិវឌ្ឍតាមដងទន្លេមេគង្គលើ ក្នុងខេត្តកណ្តាល។</p>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-img" style="background-image: url('https://images.unsplash.com/photo-1588665042442-1e96a4b16262?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="terminal-content">
+                        <h3 data-i18n="terminal-5-h">ចំណតពហុបំណងរណប UM2</h3>
+                        <p data-i18n="terminal-5-p">មូលដ្ឋានសំខាន់តាមទន្លេមេគង្គលើ ក្នុងខេត្តត្បូងឃ្មុំ។</p>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-img" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="terminal-content">
+                        <h3 data-i18n="terminal-6-h">ចំណតពហុបំណងរណប TS11</h3>
+                        <p data-i18n="terminal-6-p">ចំណតសំខាន់តាមទន្លេសាប ក្នុងខណ្ឌឫស្សីកែវ រាជធានីភ្នំពេញ។</p>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-img" style="background-image: url('https://images.unsplash.com/photo-1562923690-349f76a599dc?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="terminal-content">
+                        <h3 data-i18n="terminal-7-h">ចំណតពហុបំណងរណប LM26</h3>
+                        <p data-i18n="terminal-7-p">ចំណតយុទ្ធសាស្ត្រតាមទន្លេមេគង្គក្រោម សម្រួលពាណិជ្ជកម្មក្នុងខេត្តព្រៃវែង។</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Infrastructure Info to lengthen section -->
+            <div class="detail-row reveal" style="margin-top: 100px;">
+                <div class="detail-content">
+                    <h3 data-i18n="infra-detail-h">ការពង្រីក និងការអភិវឌ្ឍ</h3>
+                    <p data-i18n="infra-detail-p">យើងកំពុងវិនិយោគឥតឈប់ឈរលើការកសាងចំណតរណបថ្មីៗ និងការតម្លើងឧបករណ៍លើកដាក់ទំនិញទំនើបៗ។ ផែនការយុទ្ធសាស្ត្ររបស់យើងគឺបង្កើនសមត្ថភាពផ្ទុកកុងតឺន័រឱ្យដល់ ៦៦០,០០០ TEUs ក្នុងមួយឆ្នាំ ដើម្បីឆ្លើយតបនឹងតម្រូវការទីផ្សារដែលកំពុងរីកចម្រើន។</p>
+                    <ul style="list-style: none; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <li style="display: flex; align-items: center; gap: 10px;"><i data-lucide="check-circle" size="18" style="color: var(--accent);"></i> <span data-i18n="bullet-1">ចំណតរណបថ្មី</span></li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i data-lucide="check-circle" size="18" style="color: var(--accent);"></i> <span data-i18n="bullet-2">ប្រព័ន្ធស្ទូចកុងតឺន័រ RTG</span></li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i data-lucide="check-circle" size="18" style="color: var(--accent);"></i> <span data-i18n="bullet-3">ឃ្លាំងស្តុកទំនើប</span></li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i data-lucide="check-circle" size="18" style="color: var(--accent);"></i> <span data-i18n="bullet-4">ប្រព័ន្ធគ្រប់គ្រង ITOS</span></li>
+                    </ul>
+                </div>
+                <div class="detail-img">
+                    <img src="https://images.unsplash.com/photo-1516589174382-c68586ad5ceb?auto=format&fit=crop&q=80&w=800" alt="Development Plan">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 30px; color: white;">
+                    <div class="logo-icon-box" style="background: var(--accent);">
+                        <i data-lucide="anchor" size="30"></i>
+                    </div>
+                    <div class="logo-text-group">
+                        <span class="logo-main" style="color: white;" data-i18n="logo-main">កំពង់ផែស្វយ័តភ្នំពេញ</span>
+                        <span class="logo-sub" style="color: var(--accent);" data-i18n="logo-sub">PPAP CAMBODIA</span>
+                    </div>
+                </div>
+                <p style="opacity: 0.9; font-size: 0.95rem; max-width: 400px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);" data-i18n="footer-about-p">ក្រុមហ៊ុនដែលបានចុះបញ្ជីជាសាធារណៈឈានមុខគេក្នុងសេវាកម្មសមុទ្រកម្ពុជា ឧទ្ទិសដល់ឧត្តមភាពប្រតិបត្តិការ និងកំណើនសេដ្ឋកិច្ចប្រកបដោយចីរភាព។</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-links-h">ការរុករក</h4>
+                <ul style="list-style: none;">
+                    <li><a href="#home" data-i18n="menu-home" style="color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500;">ទំព័រដើម</a></li>
+                    <li><a href="#services" data-i18n="menu-services" style="color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500;">សេវាកម្ម</a></li>
+                    <li><a href="#terminals" data-i18n="menu-terminals" style="color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500;">ហេដ្ឋារចនាសម្ព័ន្ធ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-contact-h">ទំនាក់ទំនង</h4>
+                <div style="display: flex; gap: 12px; margin-bottom: 12px; opacity: 0.9;">
+                    <i data-lucide="phone" size="20" style="color:var(--accent)"></i>
+                    <span style="font-weight: 500;">+(855) 10 444 044</span>
+                </div>
+                <div style="display: flex; gap: 12px; opacity: 0.9;">
+                    <i data-lucide="mail" size="20" style="color:var(--accent)"></i>
+                    <span style="font-weight: 500;">sale-marketing@ppap.com.kh</span>
+                </div>
+                <div style="display: flex; gap: 12px; opacity: 0.9;">
+                    <i data-lucide="map-pin" size="20" style="color:var(--accent)"></i>
+                    <span style="font-weight: 500;">Preah Sisowath Quay, Phnom Penh</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PPAP Cambodia. <span data-i18n="footer-rights">រក្សាសិទ្ធិគ្រប់យ៉ាង។</span></p>
+            <p style="letter-spacing: 1px;">Transparency | Integrity | Prosperity</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const translations = {
+            en: {
+                "logo-main": "Phnom Penh Autonomous Port",
+                "logo-sub": "PPAP CAMBODIA",
+                "menu-home": "Home",
+                "menu-services": "Services",
+                "menu-terminals": "Infrastructure",
+                "menu-contact": "Contact",
+                "hero-title": "Phnom Penh Autonomous Port",
+                "hero-subtitle": "Driving Cambodia's economy through world-class maritime infrastructure and seamless river-to-sea connectivity.",
+                "hero-cta": "Explore Our Potential",
+                "stat-terminals": "Strategic Terminals",
+                "stat-containers": "Annual TEU Capacity",
+                "stat-profit": "Profit Margin %",
+                "stat-listed": "Public Listing Year",
+                "services-title": "Specialized Port Operations",
+                "service-1-h": "Port Authority",
+                "service-1-p": "Managing vessel navigation, pilotage, and dredging to ensure efficient port traffic flow.",
+                "service-2-h": "Stevedoring & Handling",
+                "service-2-p": "Precision cargo handling and container operations utilizing modern terminal automation.",
+                "service-3-h": "Logistics Solutions",
+                "service-3-p": "Integrated supply chain solutions linking our inland terminals with global shipping lanes.",
+                "terminals-title": "Core River Infrastructure",
+                "terminal-1-h": "Container Terminal LM17",
+                "terminal-1-p": "The Kingdom's primary river hub for international containerized shipping.",
+                "terminal-2-h": "Multipurpose Terminal TS3",
+                "terminal-2-p": "A versatile facility handling general cargo, heavy machinery, and regional trade connections.",
+                "terminal-3-h": "Passenger & Tourist Terminal TS1",
+                "terminal-3-p": "Daun Penh - The gateway for vibrant riverine tourism.",
+                "terminal-4-h": "Sub-feeder Terminal UM1",
+                "terminal-4-p": "Developing terminal situated along the Upper Mekong River, Kandal Province.",
+                "terminal-5-h": "Sub-feeder Terminal UM2",
+                "terminal-5-p": "Key Upper Mekong facility located in Tboung Khmum Province.",
+                "terminal-6-h": "Sub-feeder Terminal TS11",
+                "terminal-6-p": "Crucial Tonle Sap river terminal in Russey Keo District, Phnom Penh.",
+                "terminal-7-h": "Sub-feeder Terminal LM26",
+                "terminal-7-p": "Strategic Lower Mekong terminal facilitating regional trade in Prey Veng.",
+                "footer-about-p": "A publicly listed leader in Cambodian maritime services, dedicated to operational excellence.",
+                "footer-links-h": "Navigation",
+                "footer-contact-h": "Contact PPAP",
+                "footer-rights": "All Rights Reserved.",
+                "marquee-1": "Welcome to Phnom Penh Autonomous Port (PPAP)",
+                "marquee-2": "Leading International River Port in Cambodia",
+                "marquee-3": "Listed on CSX: Symbol PPAP",
+                "serv-detail-1-h": "Navigation & Safety Operations",
+                "serv-detail-1-p": "As a Port Authority, we ensure the highest level of safety for all vessels calling at our port. Our services include professional pilotage, dredging for navigable depth, and efficient river traffic management.",
+                "serv-detail-2-h": "Integrated Logistics Solutions",
+                "serv-detail-2-p": "We offer multimodal transport solutions connecting river and road. With secure warehousing and advanced terminal management systems, we help your business operations run smoothly.",
+                "read-more": "Read More",
+                "infra-detail-h": "Expansion & Development",
+                "infra-detail-p": "We are constantly investing in satellite terminals and advanced cargo handling equipment. Our strategic goal is to increase capacity to 660,000 TEUs annually.",
+                "bullet-1": "New Satellite Terminals",
+                "bullet-2": "RTG Crane Systems",
+                "bullet-3": "Modern Warehousing",
+                "bullet-4": "ITOS Management System"
+            },
+            km: {
+                "logo-main": "កំពង់ផែស្វយ័តភ្នំពេញ",
+                "logo-sub": "PPAP CAMBODIA",
+                "menu-home": "ទំព័រដើម",
+                "menu-services": "សេវាកម្ម",
+                "menu-terminals": "ហេដ្ឋារចនាសម្ព័ន្ធ",
+                "menu-contact": "ទំនាក់ទំនង",
+                "hero-title": "កំពង់ផែស្វយ័តក្រុងភ្នំពេញ",
+                "hero-subtitle": "ជំរុញសេដ្ឋកិច្ចកម្ពុជាតាមរយៈហេដ្ឋារចនាសម្ព័ន្ធសមុទ្រលំដាប់ពិភពលោក និងការតភ្ជាប់ពីទន្លេទៅសមុទ្រប្រកបដោយប្រសិទ្ធភាពខ្ពស់បំផុត។",
+                "hero-cta": "ស្វែងយល់ពីសក្ដានុពលរបស់យើង",
+                "stat-terminals": "ចំនួនចំណតយុទ្ធសាស្ត្រ",
+                "stat-containers": "សមត្ថភាព TEU ប្រចាំឆ្នាំ",
+                "stat-profit": "អនុបាតចំណេញដុល %",
+                "stat-listed": "ឆ្នាំចុះបញ្ជីជាសាធារណៈ",
+                "services-title": "ប្រតិបត្តិការកំពង់ផែឯកទេស",
+                "service-1-h": "អាជ្ញាធរកំពង់ផែ",
+                "service-1-p": "គ្រប់គ្រងនាវាចរណ៍ ការនាំនាវា និងការបូមស្តារ ដើម្បីធានាលំហូរចរាចរណ៍កំពង់ផែប្រកបដោយសុវត្ថិភាព។",
+                "service-2-h": "សេវាលើកដាក់ទំនិញ",
+                "service-2-p": "ការចាត់ចែងទំនិញ និងប្រតិបត្តិការកុងតឺន័រដោយប្រើប្រាស់ប្រព័ន្ធស្ទូចទំនើបចុងក្រោយបង្អស់។",
+                "service-3-h": "ដំណោះស្រាយភស្តុភារ",
+                "service-3-p": "ដំណោះស្រាយខ្សែសង្វាក់ផ្គត់ផ្គង់ចម្រុះ តភ្ជាប់ចំណតក្នុងដីគោកជាមួយផ្លូវនាវាចរណ៍សកលលោក។",
+                "terminals-title": "ហេដ្ឋារចនាសម្ព័ន្ធទន្លេចម្បង",
+                "terminal-1-h": "ចំណតកុងតឺន័រ LM17",
+                "terminal-1-p": "មជ្ឈមណ្ឌលទន្លេចម្បងរបស់ព្រះរាជាណាចក្រ សម្រាប់ការដឹកជញ្ជូនកុងតឺន័រអន្តរជាតិ។",
+                "terminal-2-h": "ចំណតពហុបំណង TS3",
+                "terminal-2-p": "មូលដ្ឋានចម្រុះសម្រាប់ចាត់ចែងទំនិញទូទៅ គ្រឿងចក្រធុនធ្ងន់ និងការតភ្ជាប់ពាណិជ្ជកម្ម។",
+                "terminal-3-h": "ចំណតអ្នកដំណើរ និងទេសចរណ៍ TS1",
+                "terminal-3-p": "ខណ្ឌដូនពេញ - ច្រកទ្វារទេសចរណ៍តាមដងទន្លេដ៏រស់រវើក។",
+                "terminal-4-h": "ចំណតពហុបំណងរណប UM1",
+                "terminal-4-p": "កំពុងអភិវឌ្ឍតាមដងទន្លេមេគង្គលើ ក្នុងខេត្តកណ្តាល។",
+                "terminal-5-h": "ចំណតពហុបំណងរណប UM2",
+                "terminal-5-p": "មូលដ្ឋានសំខាន់តាមទន្លេមេគង្គលើ ក្នុងខេត្តត្បូងឃ្មុំ។",
+                "terminal-6-h": "ចំណតពហុបំណងរណប TS11",
+                "terminal-6-p": "ចំណតសំខាន់តាមទន្លេសាប ក្នុងខណ្ឌឫស្សីកែវ រាជធានីភ្នំពេញ។",
+                "terminal-7-h": "ចំណតពហុបំណងរណប LM26",
+                "terminal-7-p": "ចំណតយុទ្ធសាស្ត្រតាមទន្លេមេគង្គក្រោម សម្រួលពាណិជ្ជកម្មក្នុងខេត្តព្រៃវែង។",
+                "footer-about-p": "ក្រុមហ៊ុនដែលបានចុះបញ្ជីជាសាធារណៈឈានមុខគេក្នុងសេវាកម្មសមុទ្រកម្ពុជា ឧទ្ទិសដល់ឧត្តមភាពប្រតិបត្តិការ និងកំណើនសេដ្ឋកិច្ចប្រកបដោយចីរភាព។",
+                "footer-links-h": "ការរុករក",
+                "footer-contact-h": "ទំនាក់ទំនង",
+                "footer-rights": "រក្សាសិទ្ធិគ្រប់យ៉ាង។",
+                "marquee-1": "សូមស្វាគមន៍មកកាន់កំពង់ផែស្វយ័តភ្នំពេញ (PPAP)",
+                "marquee-2": "កំពង់ផែទន្លេអន្តរជាតិឈានមុខគេក្នុងប្រទេសកម្ពុជា",
+                "marquee-3": "ចុះបញ្ជីនៅផ្សារមូលបត្រកម្ពុជា (CSX) និមិត្តសញ្ញា៖ PPAP",
+                "serv-detail-1-h": "ប្រតិបត្តិការនាវាចរណ៍ និងសុវត្ថិភាព",
+                "serv-detail-1-p": "ក្នុងនាមជាអាជ្ញាធរកំពង់ផែ យើងធានាបាននូវសុវត្ថិភាពខ្ពស់បំផុតសម្រាប់នាវាទាំងអស់ដែលចូលចត។ សេវាកម្មរបស់យើងរួមមានការណែនាំផ្លូវនាវា ការបូមស្តារផ្លូវទឹក និងការគ្រប់គ្រងចរាចរណ៍តាមទន្លេប្រកបដោយវិជ្ជាជីវៈ។",
+                "serv-detail-2-h": "សេវាកម្មភស្តុភារកម្មទំនើប",
+                "serv-detail-2-p": "យើងផ្តល់ជូននូវដំណោះស្រាយដឹកជញ្ជូនដែលរួមបញ្ចូលគ្នា រវាងផ្លូវទឹក និងផ្លូវគោក។ ជាមួយនឹងឃ្លាំងស្តុកទំនិញដែលមានសុវត្ថិភាព និងប្រព័ន្ធគ្រប់គ្រងទិន្នន័យកម្រិតខ្ពស់ យើងជួយឱ្យអាជីវកម្មរបស់អ្នកដំណើរការដោយរលូន។",
+                "read-more": "អានបន្ថែម",
+                "infra-detail-h": "ការពង្រីក និងការអភិវឌ្ឍ",
+                "infra-detail-p": "យើងកំពុងវិនិយោគឥតឈប់ឈរលើការកសាងចំណតរណបថ្មីៗ និងការតម្លើងឧបករណ៍លើកដាក់ទំនិញទំនើបៗ។ ផែនការយុទ្ធសាស្ត្ររបស់យើងគឺបង្កើនសមត្ថភាពផ្ទុកកុងតឺន័រឱ្យដល់ ៦៦០,០០០ TEUs ក្នុងមួយឆ្នាំ ដើម្បីឆ្លើយតបនឹងតម្រូវការទីផ្សារដែលកំពុងរីកចម្រើន។",
+                "bullet-1": "ចំណតរណបថ្មី",
+                "bullet-2": "ប្រព័ន្ធស្ទូចកុងតឺន័រ RTG",
+                "bullet-3": "ឃ្លាំងស្តុកទំនើប",
+                "bullet-4": "ប្រព័ន្ធគ្រប់គ្រង ITOS"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-km').classList.toggle('active', lang === 'km');
+            document.getElementById('m-btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('m-btn-km').classList.toggle('active', lang === 'km');
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.textContent = translations[lang][key];
+            });
+            document.body.setAttribute('lang', lang);
+            if(mobileMenu.classList.contains('active')) toggleMenu(false);
+        }
+
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        function toggleMenu(force) {
+            const active = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('active');
+            mobileMenu.classList.toggle('active', active);
+            menuToggle.innerHTML = `<i data-lucide="${active ? 'x' : 'menu'}"></i>`;
+            lucide.createIcons();
+            document.body.style.overflow = active ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', () => toggleMenu());
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            const btt = document.getElementById('backToTop');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+            btt.style.display = window.scrollY > 400 ? 'block' : 'none';
+        });
+
+        const reveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', reveal);
+
+        const startCounters = () => {
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const update = () => {
+                    const count = +counter.innerText.replace(/,/g, '');
+                    const inc = target / 50;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc).toLocaleString();
+                        setTimeout(update, 20);
+                    } else counter.innerText = target.toLocaleString();
+                };
+                update();
+            });
+        };
+
+        // Section Observer for Active Link Highlighting
+        const sections = document.querySelectorAll('section, footer');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    if (!id) return;
+                    
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { 
+            threshold: 0.25, // Adjusted threshold for smoother activation on longer sections
+            rootMargin: "-150px 0px -40% 0px"
+        });
+
+        sections.forEach(section => {
+            if (section.id) navObserver.observe(section);
+        });
+
+        const statsObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { 
+                if(e.isIntersecting) { 
+                    document.querySelectorAll('.stat-item').forEach((item, index) => {
+                        setTimeout(() => item.classList.add('active'), index * 200);
+                    });
+                    startCounters(); 
+                    statsObs.unobserve(e.target); 
+                }
+            });
+        }, { threshold: 0.5 });
+        statsObs.observe(document.querySelector('.stats-section'));
+
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        
+        changeLanguage('km'); // Default to Khmer
+        reveal();
+    </script>
+</body>
+</html>
